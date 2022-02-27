@@ -1,17 +1,18 @@
-import React, { FunctionComponent } from 'react';
-import List from '@mui/material/List';
+import React, {useState, FunctionComponent } from 'react';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
-import { IUser } from '../Interfaces/IUser';
-import { FriendList } from './FriendList';
-import { Button } from '@mui/material';
+import { ILesson } from '../Interfaces/ILesson';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import { Box, Button, ListItemButton, ListItemIcon, Modal, Stack } from '@mui/material';
+import {style} from '../Helper/stylesHelper';
 
-
-export const Lesson: FunctionComponent<IUser> = (props: IUser) => {
+export const Lesson: FunctionComponent<ILesson> = (props: ILesson) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <>
@@ -23,10 +24,10 @@ export const Lesson: FunctionComponent<IUser> = (props: IUser) => {
       }}
         alignItems="flex-start"
         secondaryAction={
-          <Button variant="contained" onClick={()=>{}}> Info </Button>
+          <Button variant="contained" onClick={handleOpen}> Info </Button>
         }>
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src={props.photo} />
+          <MenuBookIcon />
         </ListItemAvatar>
 
         <ListItemText
@@ -40,16 +41,36 @@ export const Lesson: FunctionComponent<IUser> = (props: IUser) => {
                 color="text.primary"
                 marginRight={1}
               >
-                {props.dob}
+                Professor:
               </Typography>
-              {props.gender}
+              {props.professor}
 
             </React.Fragment>
           }
         />
       </ListItem >
       <Divider light />
-      
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+          {props.name}
+          </Typography>
+          <Typography id="modal-modal-title" color="text.primary" sx={{ mt: 2 }}>
+          Schedule: {props.schedule}
+          </Typography>
+          <Typography id="modal-modal-title" color="text.primary" sx={{ mt: 2 }}>
+          Professor: {props.professor}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          {props.detail}
+          </Typography>
+        </Box>
+      </Modal>
     </>
 
   );

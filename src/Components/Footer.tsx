@@ -20,7 +20,7 @@ function Copyright() {
 
 export const Footer:FunctionComponent<FooterProps> = () => {
     return (
-        < Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer" >
+        < Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer" marginTop={2} >
             <Typography variant="h6" align="center" gutterBottom>
                 ModakApp
             </Typography>

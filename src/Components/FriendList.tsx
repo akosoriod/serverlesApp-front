@@ -4,7 +4,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
-import ImageIcon from '@mui/icons-material/Image';
 import { IUser, IUserId } from '../Interfaces/IUser';
 import { fetcher } from '../Helper/fetcher';
 
@@ -26,7 +25,7 @@ export const FriendList: FunctionComponent<IUserId> = (props: IUserId) => {
                >
                 <ListItemAvatar>
                   <Avatar>
-                  <Avatar alt="Remy Sharp" src={'https://ui-avatars.com/api/?name='+user.name} />
+                  <Avatar alt="Remy Sharp" src={user.photo} />
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={user.name} secondary="Friend" />

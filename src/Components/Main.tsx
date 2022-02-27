@@ -1,15 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import GroupIcon from '@mui/icons-material/Group';
 import ClassIcon from '@mui/icons-material/Class';
-import { Box, Container } from '@mui/material';
-import { Route, Routes, Link, Navigate, useNavigate } from 'react-router-dom';
+import { Container } from '@mui/material';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Users } from './Users'
 import { Lessons } from './Lessons'
-import { Friendships } from './Friendships'
-
 type Main = {};
 
 
